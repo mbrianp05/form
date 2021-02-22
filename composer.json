@@ -1,0 +1,17 @@
+{
+    "name": "laton/form-component",
+    "description": "An HTTP Form Component",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian",
+            "email": "mbrianp05@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
