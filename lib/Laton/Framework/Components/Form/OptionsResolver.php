@@ -30,12 +30,20 @@ class OptionsResolver
         // So the new options will replace the first ones
         $this->options = \array_merge($this->options, $options);
 
+        // Set the label with same value as the name but with
+        // the first letter in uppercase
         if (!isset($this->options['label'])) {
             $this->options['label'] = \ucfirst($this->options['name']);
         }
 
+        // Set the ID with the same value as the name
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->options['name'];
+        }
+
+        // Init a default value
+        if (!isset($this->options['value'])) {
+            $this->options['value'] = '';
         }
 
         return $this->options;

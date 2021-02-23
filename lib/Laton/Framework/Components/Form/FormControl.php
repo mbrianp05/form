@@ -83,8 +83,17 @@ class FormControl
     {
         foreach ($this->validators as $validator) {
             if ($validator->validate($this->options['value'])) {
-                $this->errors[] = $validator->getErrorMessage();
+                $this->errors[$validator::class] = $validator->getErrorMessage();
             }
         }
+    }
+
+    public function hasError(string $name = null): bool
+    {
+        if (null === $name) {
+            return 1 <= count($this->errors);
+        }
+
+        return \array_key_exists($name, $this->errors);
     }
 }

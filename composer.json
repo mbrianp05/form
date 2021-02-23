@@ -1,7 +1,10 @@
 {
     "name": "laton/form-component",
-    "description": "An HTTP Form Component",
+    "description": "A form component",
     "type": "library",
+    "require": {
+        "mbrianp/http": "^1.0"
+    },
     "license": "MIT",
     "authors": [
         {
@@ -10,14 +13,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
     "require-dev": {
-        "phpunit/phpunit": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Laton\\Framework\\Components\\Form\\": "lib/Laton/Framework/Components/Form"
-        },
-        "files": ["lib/Laton/Framework/Components/Form/bootstrap.php"]
+        "phpunit/phpunit": "^9.5"
     }
 }

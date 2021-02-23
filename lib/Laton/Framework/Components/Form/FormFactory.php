@@ -7,6 +7,9 @@ use Laton\Framework\Components\Form\Types\TextType;
 
 class FormFactory
 {
+    /**
+     * @var FormControl[]
+     */
     protected array $controls = [];
 
     public function __construct(public array $options)
@@ -22,8 +25,7 @@ class FormFactory
     public function addControl(string $name, string $type = TextType::class, array $options = []): static
     {
         $control = new FormControl($name, new $type($name, $options), $options);
-
-        $this->controls[] = $control;
+        $this->controls[$name] = $control;
 
         return $this;
     }
@@ -51,5 +53,15 @@ class FormFactory
     public function renderClose(): string
     {
         return Renderer::closeTag('form');
+    }
+    
+    public function isValid(): bool
+    {
+        foreach ($this->controls as $control) {
+            if ($control->hasError())
+                return false;
+        }
+
+        return true;
     }
 }
